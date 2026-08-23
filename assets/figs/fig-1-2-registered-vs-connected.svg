@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 420" font-family="Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif">
+  <rect width="1240" height="420" fill="#ffffff"/>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#7c8892"/>
+    </marker>
+  </defs>
+
+  <!-- start: finger on key -->
+  <circle cx="110" cy="185" r="46" fill="#faf1dc" stroke="#c9962a" stroke-width="3"/>
+  <text x="110" y="179" font-size="17" font-weight="700" fill="#8a6415" text-anchor="middle">finger</text>
+  <text x="110" y="199" font-size="17" font-weight="700" fill="#8a6415" text-anchor="middle">on key</text>
+  <line x1="156" y1="170" x2="230" y2="105" stroke="#7c8892" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="156" y1="200" x2="230" y2="265" stroke="#7c8892" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- top-left: registered, amber, fires immediately, every time -->
+  <rect x="240" y="60" width="290" height="90" rx="10" fill="#faf1dc" stroke="#c9962a" stroke-width="3"/>
+  <text x="385" y="98" font-size="21" font-weight="700" fill="#14181c" text-anchor="middle">Registered</text>
+  <text x="385" y="124" font-size="16" fill="#8a6415" text-anchor="middle" font-family="'JetBrains Mono', monospace">local, &lt;50ms, every time</text>
+
+  <!-- bottom-left: session negotiating, blue -->
+  <rect x="240" y="220" width="290" height="90" rx="10" fill="#e7effd" stroke="#2f6fed" stroke-width="3"/>
+  <text x="385" y="258" font-size="21" font-weight="700" fill="#14181c" text-anchor="middle">Session negotiating</text>
+  <text x="385" y="284" font-size="16" fill="#2f6fed" text-anchor="middle" font-family="'JetBrains Mono', monospace">~200ms, SIP / WebRTC</text>
+
+  <!-- outcome arrows from negotiating -->
+  <line x1="530" y1="245" x2="640" y2="120" stroke="#0f8577" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="530" y1="280" x2="640" y2="315" stroke="#dc2626" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- outcome: connected (success, teal) -->
+  <rect x="650" y="60" width="290" height="90" rx="10" fill="#e2f3ef" stroke="#0f8577" stroke-width="3"/>
+  <text x="795" y="98" font-size="21" font-weight="700" fill="#14181c" text-anchor="middle">Connected</text>
+  <text x="795" y="124" font-size="16" fill="#0f8577" text-anchor="middle" font-family="'JetBrains Mono', monospace">second signal, on success</text>
+  <text x="795" y="30" font-size="14" fill="#7c8892" text-anchor="middle">on success</text>
+
+  <!-- outcome: revoked (failure, red) -->
+  <rect x="650" y="270" width="290" height="90" rx="10" fill="#fbe9e8" stroke="#dc2626" stroke-width="3"/>
+  <text x="795" y="308" font-size="21" font-weight="700" fill="#8a1a15" text-anchor="middle">Revoked</text>
+  <text x="795" y="334" font-size="16" fill="#8a1a15" text-anchor="middle" font-family="'JetBrains Mono', monospace">on timeout, try again</text>
+  <text x="795" y="395" font-size="14" fill="#7c8892" text-anchor="middle">on failure: the amber Registered signal from above is actively withdrawn, not left standing</text>
+
+</svg>

@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open Line — Rebuilding trading-floor voice on WebRTC and Kubernetes</title>
+<meta name="description" content="A trader presses a key and is already speaking. Open Line is the story of rebuilding that system on WebRTC and Kubernetes, and of one question asked of every feature: is this the invariant, or is this the implementation? Read Chapter One free.">
+<link rel="canonical" href="https://amarshat.github.io/open-line/">
+
+<meta property="og:type" content="book">
+<meta property="og:site_name" content="Open Line">
+<meta property="og:title" content="Open Line">
+<meta property="og:description" content="A trader presses a key and is already speaking. No dial tone, no ringing, no hello. The story of rebuilding trading-floor voice on WebRTC and Kubernetes, and the invariants that would not move.">
+<meta property="og:url" content="https://amarshat.github.io/open-line/">
+<meta property="og:image" content="https://amarshat.github.io/open-line/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Open Line: rebuilding trading-floor voice on WebRTC and Kubernetes, by Amar Akshat and Steve Phillips.">
+<meta property="book:author" content="Amar Akshat">
+<meta property="book:author" content="Steve Phillips">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Open Line">
+<meta name="twitter:description" content="A trader presses a key and is already speaking. Rebuilding trading-floor voice on WebRTC and Kubernetes, and the invariants that would not move.">
+<meta name="twitter:image" content="https://amarshat.github.io/open-line/assets/og.png">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script>
+  (function () {
+    var t = localStorage.getItem('ol-theme');
+    document.documentElement.setAttribute('data-theme', t || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+  })();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": "Open Line",
+  "alternativeHeadline": "Rebuilding trading-floor voice on WebRTC and Kubernetes, and the invariants that would not move",
+  "author": [
+    { "@type": "Person", "name": "Amar Akshat" },
+    { "@type": "Person", "name": "Steve Phillips" }
+  ],
+  "bookFormat": "https://schema.org/Paperback",
+  "numberOfPages": 196,
+  "inLanguage": "en",
+  "genre": "Software architecture",
+  "url": "https://amarshat.github.io/open-line/",
+  "image": "https://amarshat.github.io/open-line/assets/og.png",
+  "description": "The trading floor is the last place in finance still running a device that feels like 1987. This is the story of what happened when someone tried to replace it."
+}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="./">Open&nbsp;Line</a>
+    <div class="nav-links">
+      <a href="#book" class="hide-sm">The book</a>
+      <a href="#contents" class="hide-sm">Contents</a>
+      <a href="#authors" class="hide-sm">Authors</a>
+      <a href="read/">Read Chapter One</a>
+      <button class="themer" id="themer" type="button" aria-label="Switch between light and dark theme">
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="kicker">Trader voice, rebuilt</p>
+      <h1 class="title">Open Line</h1>
+      <p class="sub">Rebuilding trading-floor voice on WebRTC and Kubernetes, and the invariants that would not move.</p>
+      <p class="byline">Amar Akshat &nbsp;&middot;&nbsp; Steve Phillips</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="read/">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v13a2.5 2.5 0 0 0-2.5-2.5H2zM22 4h-7a3 3 0 0 0-3 3v13a2.5 2.5 0 0 1 2.5-2.5H22z"/></svg>
+          Read Chapter One free
+        </a>
+        <a class="btn btn-ghost" href="#book">What it is</a>
+      </div>
+      <p class="cta-note">2,200 words, no email required. 196 pages and 33 diagrams in full.</p>
+    </div>
+    <div class="hero-art">
+      <img src="assets/cover.png" width="1200" height="1800"
+           alt="Cover of Open Line: a trading-floor turret and its descendants, from physical buttons to software.">
+    </div>
+  </div>
+</header>
+
+<section id="book">
+  <div class="wrap narrow">
+    <blockquote class="pull">
+      A trader presses a key and is already speaking. No dial tone, no ringing, no hello.
+      <cite>Chapter One</cite>
+    </blockquote>
+  </div>
+  <div class="wrap narrow" style="margin-top:44px">
+    <p class="lede">The channel has been open since seven this morning and nobody joined it, because a system that announced who was listening would be useless.</p>
+    <p>Behind that key sits forty years of accumulated engineering, most of it undocumented, some of it accidental, and almost none of it written down anywhere a modern team would find it. The trading floor is the last place in finance still running a device that feels like 1987. This is the story of what happened when someone tried to replace it.</p>
+    <p><em>Open Line</em> follows a rebuild of that system on WebRTC and Kubernetes, and asks one question of every feature, old and new.</p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <p class="eyebrow">The question the book keeps asking</p>
+    <h2>Is this the invariant, or is this the implementation?</h2>
+    <p class="lede narrow" style="margin:0">The answers are frequently uncomfortable. Most of what looks like legacy turns out to encode an answer somebody would otherwise have to rediscover. Some of what looks essential turns out to be a period detail nobody revisited.</p>
+    <div class="cards">
+      <div class="card">
+        <span class="n">01</span>
+        <h3>A latency budget that is not about speed</h3>
+        <p>It turns out to be about certainty. The number traders defend is not the one an engineer would have optimised.</p>
+      </div>
+      <div class="card">
+        <span class="n">02</span>
+        <h3>A recording that satisfies the regulation</h3>
+        <p>And cannot answer the question a regulator actually asks. Compliant and useless are not mutually exclusive.</p>
+      </div>
+      <div class="card">
+        <span class="n">03</span>
+        <h3>A migration whose unit is not a desk</h3>
+        <p>It is the smallest group of people who have to behave as if they were one floor. Get the unit wrong and nothing else matters.</p>
+      </div>
+      <div class="card">
+        <span class="n">04</span>
+        <h3>A vendor deliberately unable to prove who its customers are</h3>
+        <p>Each firm keeps its own authority. The vendor is a relying party and nothing more, on purpose.</p>
+      </div>
+      <div class="card">
+        <span class="n">05</span>
+        <h3>A negotiation that ran into its third year</h3>
+        <p>Over a private call, an employee representative body, and whether a person may ever switch the recording off.</p>
+      </div>
+      <div class="card">
+        <span class="n">06</span>
+        <h3>A second telephone on the desk</h3>
+        <p>Which is still the only answer anybody has found. The book declines to pretend otherwise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Drawn, not just described</p>
+    <h2>Thirty-three diagrams, and a companion Visual Atlas</h2>
+    <p class="lede narrow" style="margin:0">Every argument that can be drawn is drawn. Each figure states what to take away from it, so the atlas works on its own.</p>
+    <div class="figs">
+      <figure class="fig">
+        <img src="assets/figs/fig-1-1-three-clocks.svg" alt="Three clocks diagram showing where a call's time is actually spent." loading="lazy">
+        <figcaption>Where the time actually goes, and which part of it a trader can feel.</figcaption>
+      </figure>
+      <figure class="fig">
+        <img src="assets/figs/fig-1-2-registered-vs-connected.svg" alt="Diagram contrasting a registered endpoint with a connected one." loading="lazy">
+        <figcaption>Registered is not connected. The distinction costs more than it looks like it should.</figcaption>
+      </figure>
+      <figure class="fig">
+        <img src="assets/figs/fig-9-1-beside-not-inside.svg" alt="Diagram showing media placed beside the orchestration plane rather than inside it." loading="lazy">
+        <figcaption>The media plane has one job, and it belongs beside the control plane, not inside it.</figcaption>
+      </figure>
+      <figure class="fig">
+        <img src="assets/figs/fig-13-1-three-bins-not-two.svg" alt="Diagram showing three classification bins where teams usually assume two." loading="lazy">
+        <figcaption>Three bins, not two. The middle one is where the arguments happen.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ENDORSEMENTS
+     Four slots. Replace the .pending blocks below with real quotes.
+     Keep the markup, swap the <p> text and the <footer> attribution,
+     and remove class="pending" so the amber rule and full contrast
+     come back. Delete any slot that stays empty before launch.
+     ============================================================ -->
+<section class="alt" id="praise">
+  <div class="wrap">
+    <p class="eyebrow">Advance praise</p>
+    <h2>What readers in the industry are saying</h2>
+    <div class="quotes">
+
+      <blockquote class="endorse pending">
+        <p>&ldquo;Quote one goes here.&rdquo;</p>
+        <footer>Name, title, organisation</footer>
+      </blockquote>
+
+      <blockquote class="endorse pending">
+        <p>&ldquo;Quote two goes here.&rdquo;</p>
+        <footer>Name, title, organisation</footer>
+      </blockquote>
+
+      <blockquote class="endorse pending">
+        <p>&ldquo;Quote three goes here.&rdquo;</p>
+        <footer>Name, title, organisation</footer>
+      </blockquote>
+
+      <blockquote class="endorse pending">
+        <p>&ldquo;Quote four goes here.&rdquo;</p>
+        <footer>Name, title, organisation</footer>
+      </blockquote>
+
+    </div>
+  </div>
+</section>
+
+<section id="contents">
+  <div class="wrap narrow">
+    <p class="eyebrow">Contents</p>
+    <h2>Twenty pieces, one argument</h2>
+    <p class="lede" style="margin:0">The first half takes the old machine apart. The second half rebuilds it and finds out which parts refuse to move.</p>
+    <div class="toc">
+      <div class="toc-row free">
+        <span class="num">1</span>
+        <span class="nm"><a href="read/" style="text-decoration:none;color:inherit">The Button That Cannot Wait</a></span>
+        <span class="free-tag">Free</span>
+      </div>
+      <div class="toc-row"><span class="num">2</span><span class="nm">The Call Nobody Answers</span></div>
+      <div class="toc-row"><span class="num">3</span><span class="nm">Fifty Buttons and No Menu</span></div>
+      <div class="toc-row"><span class="num">4</span><span class="nm">The Wire That Became a Relationship</span></div>
+      <div class="toc-row"><span class="num">5</span><span class="nm">The Sounds That Survived</span></div>
+      <div class="toc-row"><span class="num">6</span><span class="nm">Is the Turret the Product?</span></div>
+      <div class="toc-row"><span class="num">7</span><span class="nm">Cloud Native, Not Cloud Careless</span></div>
+      <div class="toc-row"><span class="num">8</span><span class="nm">Identity Is the New Line Card</span></div>
+      <div class="toc-row"><span class="num">9</span><span class="nm">The Media Plane Has One Job</span></div>
+      <div class="toc-row"><span class="num">10</span><span class="nm">Recording Is Part of the Call</span></div>
+      <div class="toc-row"><span class="num">11</span><span class="nm">The Floor That Runs Both</span></div>
+      <div class="toc-row"><span class="num">12</span><span class="nm">Two Data Centres Are Not Resilience</span></div>
+      <div class="toc-row"><span class="num">13</span><span class="nm">APIs for Things That Used to Be Buttons</span></div>
+      <div class="toc-row"><span class="num">14</span><span class="nm">The Desk Becomes Programmable</span></div>
+      <div class="toc-row"><span class="num">15</span><span class="nm">The Conversation Can Understand Itself</span></div>
+      <div class="toc-row"><span class="num">16</span><span class="nm">The Bank Can Change Vendors Without Changing Reality</span></div>
+      <div class="toc-row"><span class="num">17</span><span class="nm">What Would Not Move</span></div>
+      <div class="toc-row"><span class="num">&nbsp;</span><span class="nm">Epilogue: The Third Chair</span></div>
+      <div class="toc-row"><span class="num">&nbsp;</span><span class="nm">Afterword</span></div>
+      <div class="toc-row"><span class="num">&nbsp;</span><span class="nm">Glossary</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap narrow">
+    <p class="eyebrow">What this book is not</p>
+    <h2>It is not a success story</h2>
+    <p>The platform runs. The floors that adopt it keep it. The incumbents are never displaced. What spreads is the argument.</p>
+    <p>Written by two people who have built and sold this technology, and narrated by an outside observer whose independence the book examines rather than assumes, <em>Open Line</em> is a design book that refuses the usual comforts. It states what it does not know. It quotes the numbers you can falsify and withholds the ones that would flatter it. Its final chapter is a list of what it never managed to write.</p>
+    <p><strong>For architects, engineering leaders, and the people who own the budget and the risk.</strong></p>
+  </div>
+</section>
+
+<section id="authors">
+  <div class="wrap">
+    <p class="eyebrow">The authors</p>
+    <h2>Both sides of the contract</h2>
+    <div class="authors">
+      <div class="author">
+        <img class="portrait" src="assets/steve.jpg" alt="Steve Phillips" width="132" height="132" loading="lazy">
+        <h3>Steve Phillips</h3>
+        <p class="role">Co-author</p>
+        <p>Has spent his career in trading-floor communications, including as CEO of Infinet Financial Systems and running Asia-Pacific for a turret vendor out of Tokyo. He has been on both sides of the contracts described in this book.</p>
+      </div>
+      <div class="author">
+        <img class="portrait" src="assets/amar.jpg" alt="Amar Akshat" width="132" height="132" loading="lazy">
+        <h3>Amar Akshat</h3>
+        <p class="role">Co-author</p>
+        <p>A technology leader whose career spans UCaaS, Global Markets Technology, Apple and fintech. He has architected mission-critical systems: media at scale, cloud-native infrastructure, and the identity and evidential problems that come with putting regulated voice on shared systems.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="finale">
+  <div class="wrap">
+    <h2>Start with the button that cannot wait</h2>
+    <p class="lede">Chapter One is free and complete. It is the shortest way to find out whether the rest of the book is for you.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="read/">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v13a2.5 2.5 0 0 0-2.5-2.5H2zM22 4h-7a3 3 0 0 0-3 3v13a2.5 2.5 0 0 1 2.5-2.5H22z"/></svg>
+        Read Chapter One free
+      </a>
+    </div>
+    <p class="cta-note">Paperback and Kindle editions are on the way. This page will carry the links when they exist.</p>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap fl">
+    <span>&copy; Amar Akshat and Steve Phillips</span>
+    <a href="read/">Chapter One</a>
+    <a href="#contents">Contents</a>
+    <span class="sp">196 pages &middot; 33 diagrams &middot; companion Visual Atlas</span>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

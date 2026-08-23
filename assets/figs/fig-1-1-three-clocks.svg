@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 460" font-family="Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif">
+  <rect width="1240" height="460" fill="#ffffff"/>
+
+  <!-- timeline axis -->
+  <line x1="330" y1="60" x2="330" y2="400" stroke="#dde2dd" stroke-width="2"/>
+  <line x1="590" y1="60" x2="590" y2="400" stroke="#dde2dd" stroke-width="2"/>
+  <line x1="850" y1="60" x2="850" y2="400" stroke="#dde2dd" stroke-width="2"/>
+  <text x="330" y="40" font-size="16" fill="#7c8892" text-anchor="middle" font-family="'JetBrains Mono', monospace">50ms</text>
+  <text x="590" y="40" font-size="16" fill="#7c8892" text-anchor="middle" font-family="'JetBrains Mono', monospace">150ms</text>
+  <text x="850" y="40" font-size="16" fill="#7c8892" text-anchor="middle" font-family="'JetBrains Mono', monospace">250ms</text>
+  <line x1="80" y1="400" x2="1180" y2="400" stroke="#4c565d" stroke-width="2"/>
+  <text x="80" y="428" font-size="17" fill="#4c565d">finger touches key</text>
+  <text x="1180" y="428" font-size="17" fill="#4c565d" text-anchor="end">audio arrives</text>
+
+  <!-- Row 1: perceptual latency (amber, local, <50ms) -->
+  <text x="80" y="98" font-size="19" font-weight="700" fill="#14181c">Perceptual</text>
+  <text x="80" y="120" font-size="15" fill="#4c565d">the local acknowledgment</text>
+  <rect x="330" y="80" width="26" height="34" rx="4" fill="#c9962a"/>
+  <text x="368" y="103" font-size="16" fill="#8a6415" font-family="'JetBrains Mono', monospace">&lt;50ms, on-device</text>
+  <text x="700" y="103" font-size="16" fill="#7c8892">no network round trip required to feel true</text>
+
+  <!-- Row 2: signalling latency (blue, SIP/WebRTC negotiation via SBC) -->
+  <text x="80" y="198" font-size="19" font-weight="700" fill="#14181c">Signalling</text>
+  <text x="80" y="220" font-size="15" fill="#4c565d">session negotiation</text>
+  <rect x="330" y="180" width="520" height="34" rx="4" fill="#2f6fed"/>
+  <text x="590" y="203" font-size="16" fill="#ffffff" text-anchor="middle" font-family="'JetBrains Mono', monospace">SIP / WebRTC, SDP, ICE, via SBC</text>
+
+  <!-- Row 3: media latency (teal, first packet) -->
+  <text x="80" y="298" font-size="19" font-weight="700" fill="#14181c">Media</text>
+  <text x="80" y="320" font-size="15" fill="#4c565d">first packet arrives</text>
+  <rect x="850" y="280" width="60" height="34" rx="4" fill="#0f8577"/>
+  <text x="940" y="303" font-size="16" fill="#0f8577" font-family="'JetBrains Mono', monospace">~230ms total</text>
+
+  <!-- private wire bracket, collapsed -->
+  <path d="M330 350 v20 h520 v-20" fill="none" stroke="#21262d" stroke-width="2"/>
+  <text x="590" y="392" font-size="16" fill="#21262d" text-anchor="middle">a private wire: this middle clock was already spent, months earlier</text>
+
+</svg>

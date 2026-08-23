@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 470" font-family="Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif">
+  <rect width="1240" height="470" fill="#ffffff"/>
+  <defs>
+    <marker id="a9" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#7c8892"/>
+    </marker>
+  </defs>
+
+  <!-- control plane band -->
+  <rect x="90" y="60" width="1060" height="120" rx="10" fill="#f3f4f4" stroke="#7c8892" stroke-width="1.5" stroke-dasharray="7 5"/>
+  <text x="112" y="86" font-size="13" font-weight="700" fill="#4c565d">the control plane: everything allowed to decide</text>
+
+  <g font-size="11.5" text-anchor="middle">
+    <rect x="120" y="100" width="200" height="58" rx="7" fill="#ffffff" stroke="#2f6fed" stroke-width="1.8"/>
+    <text x="220" y="124" fill="#14181c">entitlement ledger</text>
+    <text x="220" y="142" fill="#7c8892">Ch2</text>
+
+    <rect x="345" y="100" width="200" height="58" rx="7" fill="#ffffff" stroke="#2f6fed" stroke-width="1.8"/>
+    <text x="445" y="124" fill="#14181c">standing wire gate</text>
+    <text x="445" y="142" fill="#7c8892">Ch4</text>
+
+    <rect x="570" y="100" width="200" height="58" rx="7" fill="#ffffff" stroke="#2f6fed" stroke-width="1.8"/>
+    <text x="670" y="124" fill="#14181c">comfort noise</text>
+    <text x="670" y="142" fill="#7c8892">Ch5, at the edge</text>
+
+    <rect x="795" y="100" width="200" height="58" rx="7" fill="#ffffff" stroke="#2f6fed" stroke-width="1.8"/>
+    <text x="895" y="124" fill="#14181c">attestation feed</text>
+    <text x="895" y="142" fill="#7c8892">Ch6</text>
+  </g>
+
+  <!-- media path -->
+  <circle cx="120" cy="300" r="26" fill="#e2f3ef" stroke="#0f8577" stroke-width="2.5"/>
+  <text x="120" y="305" font-size="11" fill="#0f5245" text-anchor="middle">desk</text>
+  <circle cx="1120" cy="300" r="26" fill="#e2f3ef" stroke="#0f8577" stroke-width="2.5"/>
+  <text x="1120" y="305" font-size="11" fill="#0f5245" text-anchor="middle">desk</text>
+
+  <line x1="146" y1="300" x2="1094" y2="300" stroke="#0f8577" stroke-width="7"/>
+  <text x="620" y="288" font-size="15" font-weight="700" fill="#0f5245" text-anchor="middle">the media plane</text>
+  <text x="620" y="332" font-size="13" fill="#0f5245" text-anchor="middle">mixer, jitter buffer, echo canceller: arithmetic on state it already holds</text>
+  <text x="620" y="352" font-size="13" fill="#0f5245" text-anchor="middle">it never stops to ask anyone anything</text>
+
+  <!-- the recording tap: observes, nothing waits on it -->
+  <line x1="880" y1="300" x2="880" y2="382" stroke="#7c8892" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <rect x="760" y="382" width="240" height="46" rx="7" fill="#ffffff" stroke="#7c8892" stroke-width="1.8"/>
+  <text x="880" y="401" font-size="11.5" fill="#14181c" text-anchor="middle">recording fork: a tap</text>
+  <text x="880" y="418" font-size="11" fill="#7c8892" text-anchor="middle">it watches. nothing waits on it.</text>
+
+  <text x="1150" y="196" font-size="11.5" fill="#7c8892" text-anchor="end">nothing above is ever consulted from below</text>
+</svg>

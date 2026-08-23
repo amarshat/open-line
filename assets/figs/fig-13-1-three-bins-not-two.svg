@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 620" font-family="Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif">
+  <rect width="1240" height="620" fill="#ffffff"/>
+  <text x="620" y="38" font-size="14" fill="#7c8892" text-anchor="middle">sorting the verbs a turret API could expose</text>
+
+  <!-- reads -->
+  <rect x="50" y="64" width="360" height="412" rx="10" fill="#f3f4f4" stroke="#21262d" stroke-width="2"/>
+  <text x="230" y="96" font-size="15" font-weight="700" fill="#14181c" text-anchor="middle">reads</text>
+  <g font-size="12" fill="#4c565d" text-anchor="middle">
+    <text x="230" y="132">who is on this hoot</text>
+    <text x="230" y="154">what is this layout</text>
+    <text x="230" y="176">is this wire up</text>
+  </g>
+  <line x1="90" y1="204" x2="370" y2="204" stroke="#dfe3e6" stroke-width="1.5"/>
+  <g font-size="12" fill="#14181c" text-anchor="middle">
+    <text x="230" y="234" font-weight="700">needs</text>
+    <text x="230" y="262">authentication</text>
+    <text x="230" y="284">an audit trail</text>
+    <text x="230" y="316">a disclosure decision:</text>
+    <text x="230" y="338">knowing who could hear</text>
+    <text x="230" y="360">is itself sensitive</text>
+  </g>
+
+  <!-- writes -->
+  <rect x="440" y="64" width="360" height="412" rx="10" fill="#e2f3ef" stroke="#0f8577" stroke-width="2.2"/>
+  <text x="620" y="96" font-size="15" font-weight="700" fill="#0f5245" text-anchor="middle">writes</text>
+  <g font-size="12" fill="#0f5245" text-anchor="middle">
+    <text x="620" y="132">provision a position</text>
+    <text x="620" y="154">change a layout</text>
+    <text x="620" y="176">add a hoot member</text>
+  </g>
+  <line x1="480" y1="204" x2="760" y2="204" stroke="#b9ddd5" stroke-width="1.5"/>
+  <g font-size="12" fill="#0f5245" text-anchor="middle">
+    <text x="620" y="234" font-weight="700">needs</text>
+    <text x="620" y="262">idempotency</text>
+    <text x="620" y="284">deduplication</text>
+    <text x="620" y="330" font-style="italic">repairable by a</text>
+    <text x="620" y="352" font-style="italic">compensating write</text>
+  </g>
+
+  <!-- makes sound -->
+  <rect x="830" y="64" width="360" height="412" rx="10" fill="#faf1dc" stroke="#c9962a" stroke-width="2.6"/>
+  <text x="1010" y="94" font-size="15" font-weight="700" fill="#8a6415" text-anchor="middle">acts</text>
+  <text x="1010" y="114" font-size="11.5" fill="#8a6415" text-anchor="middle">the effect lands outside the system</text>
+  <g font-size="12" fill="#8a6415" text-anchor="middle">
+    <text x="1010" y="142">open a hoot leg · barge</text>
+    <text x="1010" y="162">priority ring · auto-answer · play audio</text>
+    <text x="1010" y="182">force a position off a channel</text>
+  </g>
+  <line x1="870" y1="204" x2="1150" y2="204" stroke="#e6d3a4" stroke-width="1.5"/>
+  <g font-size="12" fill="#8a6415" text-anchor="middle">
+    <text x="1010" y="234" font-weight="700">needs</text>
+    <text x="1010" y="262">consent from the target, first</text>
+    <text x="1010" y="284">a named accountable human</text>
+    <text x="1010" y="306">a budget, not a rate limit</text>
+    <text x="1010" y="328">a refusal that degrades, not drops</text>
+    <text x="1010" y="350">a retry that does not re-dial</text>
+    <text x="1010" y="372">a stop the room itself can pull</text>
+    <text x="1010" y="404" font-weight="700">no compensating write exists.</text>
+    <text x="1010" y="426" font-weight="700">it was never in the system</text>
+    <text x="1010" y="448" font-weight="700">to be fixed.</text>
+  </g>
+
+  <rect x="250" y="500" width="740" height="34" rx="6" fill="#ffffff" stroke="#7c8892" stroke-width="1.5"/>
+  <text x="620" y="522" font-size="12.5" fill="#14181c" text-anchor="middle">a button had every line of the third column built in, by accident, because a hand was attached to it</text>
+
+  <text x="620" y="576" font-size="13.5" fill="#7c8892" text-anchor="middle">two of these bins are an engineering problem.</text>
+  <text x="620" y="600" font-size="13.5" fill="#7c8892" text-anchor="middle">the third one is in a room.</text>
+</svg>
