@@ -266,8 +266,10 @@ figure.fig figcaption {
 
 /* ---------- quotes (placeholders until supplied) ---------- */
 
-.quotes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-top: 40px; }
-@media (max-width: 820px) { .quotes { grid-template-columns: 1fr; } }
+/* one quote runs as a single centred feature; .grid takes over from two up */
+.quotes { margin-top: 40px; }
+.quotes.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+@media (max-width: 820px) { .quotes.grid { grid-template-columns: 1fr; } }
 blockquote.endorse {
   margin: 0; background: var(--bg); border: 1px solid var(--rule); border-left: 3px solid var(--amber);
   border-radius: 10px; padding: 26px 26px 22px; box-shadow: var(--shadow);
@@ -278,8 +280,15 @@ blockquote.endorse p {
 blockquote.endorse footer {
   font-size: 13.5px; color: var(--ink-faint); font-weight: 600;
 }
-blockquote.endorse.pending { border-left-color: var(--rule); }
-blockquote.endorse.pending p { color: var(--ink-faint); font-style: italic; }
+blockquote.endorse.feature {
+  max-width: 780px; margin-inline: auto; padding: 40px 44px 34px;
+  border-left-width: 4px;
+}
+blockquote.endorse.feature p { font-size: 22px; line-height: 1.5; margin-bottom: 14px; }
+blockquote.endorse.feature p:last-of-type { margin-bottom: 24px; }
+blockquote.endorse.feature footer { font-size: 14.5px; }
+@media (max-width: 620px) { blockquote.endorse.feature { padding: 30px 26px 24px; }
+  blockquote.endorse.feature p { font-size: 19px; } }
 
 /* ---------- authors ---------- */
 
