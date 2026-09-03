@@ -105,6 +105,11 @@ img { max-width: 100%; display: block; }
   color: var(--ink-soft); text-decoration: none; font-size: 14.5px;
 }
 .nav-links a:hover { color: var(--ink); }
+.nav-links a.nav-buy {
+  color: var(--teal); font-weight: 600; border: 1px solid var(--teal);
+  padding: 6px 13px; border-radius: 7px;
+}
+.nav-links a.nav-buy:hover { background: var(--teal); color: #fff; }
 @media (max-width: 720px) { .nav-links a.hide-sm { display: none; } }
 
 .themer {
