@@ -8,11 +8,13 @@
 <link rel="canonical" href="https://tradervoice-book.press/">
 
 <meta property="og:type" content="book">
+<meta property="og:locale" content="en_GB">
 <meta property="og:site_name" content="Open Line">
 <meta property="og:title" content="Open Line: The Story of Trader Voice on Modern Technology">
 <meta property="og:description" content="A trader presses a key and is already speaking. No dial tone, no ringing, no hello. The story of rebuilding trading-floor voice on WebRTC and Kubernetes, and the invariants that would not move.">
 <meta property="og:url" content="https://tradervoice-book.press/">
-<meta property="og:image" content="https://tradervoice-book.press/assets/og.png">
+<meta property="og:image" content="https://tradervoice-book.press/assets/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Open Line: rebuilding trading-floor voice on WebRTC and Kubernetes, by Amar Akshat and Steve Phillips.">
@@ -21,15 +23,19 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Open Line: The Story of Trader Voice on Modern Technology">
 <meta name="twitter:description" content="A trader presses a key and is already speaking. Rebuilding trading-floor voice on WebRTC and Kubernetes, and the invariants that would not move.">
-<meta name="twitter:image" content="https://tradervoice-book.press/assets/og.png">
+<meta name="twitter:image" content="https://tradervoice-book.press/assets/og.jpg">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
 
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preload" as="image" href="assets/cover.webp" type="image/webp" fetchpriority="high">
+<link rel="stylesheet" href="assets/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"></noscript>
 <script>
   (function () {
     var t = localStorage.getItem('ol-theme');
@@ -56,7 +62,7 @@
   "inLanguage": "en",
   "genre": "Software architecture",
   "url": "https://tradervoice-book.press/",
-  "image": "https://tradervoice-book.press/assets/og.png",
+  "image": "https://tradervoice-book.press/assets/og.jpg",
   "description": "The trading floor is the last place in finance still running a device that feels like 1987. This is the story of what happened when someone tried to replace it."
 }
 </script>
@@ -70,6 +76,7 @@
       <a href="#book" class="hide-sm">The book</a>
       <a href="#contents" class="hide-sm">Contents</a>
       <a href="#authors" class="hide-sm">Authors</a>
+      <a href="glossary/" class="hide-sm">Glossary</a>
       <a href="read/">Read Chapter One</a>
       <a class="nav-buy" href="https://www.amazon.com/Open-Line-Rebuilding-trading-floor-Kubernetes-ebook/dp/B0HHG6NGFH/" target="_blank" rel="noopener">Kindle</a>
       <button class="themer" id="themer" type="button" aria-label="Switch between light and dark theme">
@@ -100,8 +107,8 @@
       <p class="cta-note">Chapter One is 2,200 words and needs no email. The book is 196 pages and 33 diagrams.</p>
     </div>
     <div class="hero-art">
-      <img src="assets/cover.png" width="1200" height="1800"
-           alt="Cover of Open Line: a trading-floor turret and its descendants, from physical buttons to software.">
+      <img src="assets/cover.webp" width="613" height="920" fetchpriority="high" decoding="async"
+           alt="Cover of Open Line: a trading-floor turret beside the screens, tablet and phone that replaced it.">
     </div>
   </div>
 </header>
@@ -157,6 +164,18 @@
         <p>Which is still the only answer anybody has found. The book declines to pretend otherwise.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="what-is-a-turret">
+  <div class="wrap narrow">
+    <p class="eyebrow">Background, for anyone new to the floor</p>
+    <h2>What is a trading turret, and what does WebRTC change?</h2>
+    <p>A <strong>trading turret</strong>, also called a <strong>dealerboard</strong>, is the dedicated console on a trading desk: a bank of sixty or more physical keys, each one a standing, pre-provisioned line to a specific counterparty or channel. It is not a telephone with speed dials. Pressing a key closes a circuit that is already open, so there is no dial tone, no ringing and no greeting. The trader is simply speaking.</p>
+    <p>That behaviour comes from the <strong>private wire</strong> underneath it, a permanent leased connection negotiated once at provisioning time, sometimes years before anybody presses the key. It also explains the other thing floors run: the <strong>hoot</strong>, an always-open broadcast channel nobody answers and nobody joins, because a system that announced who was listening would be useless.</p>
+    <p><strong>WebRTC</strong> changes the endpoint. The turret becomes a browser tab or an application on ordinary hardware, media travels as SRTP over a negotiated peer connection rather than down a dedicated wire, and the session is established per press instead of once per contract. Put that on <strong>Kubernetes</strong> and the media plane becomes something you scale, drain and fail over like any other workload, except that it is stateful and somebody is talking through it.</p>
+    <p>What does not change is the interesting part. The trader still has to know, in the instant their finger lands, that they are live. The recording still has to satisfy a regulator. The counterparty still has to be provably who they claim to be. <em>Open Line</em> is the story of taking a turret apart on modern infrastructure and finding out which of its forty-year-old behaviours were period detail and which were load-bearing.</p>
+    <p class="cta-note" style="margin-top:26px"><a href="glossary/">Thirty-five terms a trading floor never defines</a>, or <a href="read/">read Chapter One free</a>.</p>
   </div>
 </section>
 
@@ -219,27 +238,28 @@
       <div class="toc-row free">
         <span class="num">1</span>
         <span class="nm"><a href="read/" style="text-decoration:none;color:inherit">The Button That Cannot Wait</a></span>
+        <span class="bl">Three clocks under one key press, and which one a trader can feel</span>
         <span class="free-tag">Free</span>
       </div>
-      <div class="toc-row"><span class="num">2</span><span class="nm">The Call Nobody Answers</span></div>
-      <div class="toc-row"><span class="num">3</span><span class="nm">Fifty Buttons and No Menu</span></div>
-      <div class="toc-row"><span class="num">4</span><span class="nm">The Wire That Became a Relationship</span></div>
-      <div class="toc-row"><span class="num">5</span><span class="nm">The Sounds That Survived</span></div>
-      <div class="toc-row"><span class="num">6</span><span class="nm">Is the Turret the Product?</span></div>
-      <div class="toc-row"><span class="num">7</span><span class="nm">Cloud Native, Not Cloud Careless</span></div>
-      <div class="toc-row"><span class="num">8</span><span class="nm">Identity Is the New Line Card</span></div>
-      <div class="toc-row"><span class="num">9</span><span class="nm">The Media Plane Has One Job</span></div>
-      <div class="toc-row"><span class="num">10</span><span class="nm">Recording Is Part of the Call</span></div>
-      <div class="toc-row"><span class="num">11</span><span class="nm">The Floor That Runs Both</span></div>
-      <div class="toc-row"><span class="num">12</span><span class="nm">Two Data Centres Are Not Resilience</span></div>
-      <div class="toc-row"><span class="num">13</span><span class="nm">APIs for Things That Used to Be Buttons</span></div>
-      <div class="toc-row"><span class="num">14</span><span class="nm">The Desk Becomes Programmable</span></div>
-      <div class="toc-row"><span class="num">15</span><span class="nm">The Conversation Can Understand Itself</span></div>
-      <div class="toc-row"><span class="num">16</span><span class="nm">The Bank Can Change Vendors Without Changing Reality</span></div>
-      <div class="toc-row"><span class="num">17</span><span class="nm">What Would Not Move</span></div>
-      <div class="toc-row"><span class="num">&nbsp;</span><span class="nm">Epilogue: The Third Chair</span></div>
-      <div class="toc-row"><span class="num">&nbsp;</span><span class="nm">Afterword</span></div>
-      <div class="toc-row"><span class="num">&nbsp;</span><span class="nm">Glossary</span></div>
+      <div class="toc-row"><span class="num">2</span><span class="nm">The Call Nobody Answers</span><span class="bl">The always-open channel, and why a hoot has no ringing</span></div>
+      <div class="toc-row"><span class="num">3</span><span class="nm">Fifty Buttons and No Menu</span><span class="bl">Sixty-two keys, recognition over recall, and the key sheet</span></div>
+      <div class="toc-row"><span class="num">4</span><span class="nm">The Wire That Became a Relationship</span><span class="bl">When a private wire stops being a circuit and becomes a counterparty</span></div>
+      <div class="toc-row"><span class="num">5</span><span class="nm">The Sounds That Survived</span><span class="bl">Dial tone, comfort noise and sidetone as load-bearing engineering</span></div>
+      <div class="toc-row"><span class="num">6</span><span class="nm">Is the Turret the Product?</span><span class="bl">What a bank is actually buying when it buys the hardware</span></div>
+      <div class="toc-row"><span class="num">7</span><span class="nm">Cloud Native, Not Cloud Careless</span><span class="bl">StatefulSets, disruption budgets, and draining a node with a live call on it</span></div>
+      <div class="toc-row"><span class="num">8</span><span class="nm">Identity Is the New Line Card</span><span class="bl">Federated PKI, and a vendor that cannot prove who its own customers are</span></div>
+      <div class="toc-row"><span class="num">9</span><span class="nm">The Media Plane Has One Job</span><span class="bl">Mixing and forwarding beside the control plane, never inside it</span></div>
+      <div class="toc-row"><span class="num">10</span><span class="nm">Recording Is Part of the Call</span><span class="bl">Recording that satisfies the regulation and cannot answer the question</span></div>
+      <div class="toc-row"><span class="num">11</span><span class="nm">The Floor That Runs Both</span><span class="bl">Migrating a floor when the unit is not a desk</span></div>
+      <div class="toc-row"><span class="num">12</span><span class="nm">Two Data Centres Are Not Resilience</span><span class="bl">Failure domains, and degraded as a state you can actually see</span></div>
+      <div class="toc-row"><span class="num">13</span><span class="nm">APIs for Things That Used to Be Buttons</span><span class="bl">Reads, writes and acts, and which of them a turret may safely expose</span></div>
+      <div class="toc-row"><span class="num">14</span><span class="nm">The Desk Becomes Programmable</span><span class="bl">What happens when the desk starts taking instructions</span></div>
+      <div class="toc-row"><span class="num">15</span><span class="nm">The Conversation Can Understand Itself</span><span class="bl">Transcription, analytics, and the argument about who is listening</span></div>
+      <div class="toc-row"><span class="num">16</span><span class="nm">The Bank Can Change Vendors Without Changing Reality</span><span class="bl">Portability, and the moat that was never technical</span></div>
+      <div class="toc-row"><span class="num">17</span><span class="nm">What Would Not Move</span><span class="bl">The ledger: what stayed, what escaped, and what was never built</span></div>
+      <div class="toc-row"><span class="num">&nbsp;</span><span class="nm">Epilogue: The Third Chair</span><span class="bl">Every room in the book had two sides, and one more chair</span></div>
+      <div class="toc-row"><span class="num">&nbsp;</span><span class="nm">Afterword</span><span class="bl">What the book never managed to write, listed rather than omitted</span></div>
+      <div class="toc-row"><span class="num">&nbsp;</span><span class="nm">Glossary</span><span class="bl">Thirty-five terms a trading floor uses and never defines</span></div>
     </div>
   </div>
 </section>
@@ -260,13 +280,13 @@
     <h2>Both sides of the contract</h2>
     <div class="authors">
       <div class="author">
-        <img class="portrait" src="assets/steve.jpg" alt="Steve Phillips" width="132" height="132" loading="lazy">
+        <img class="portrait" src="assets/steve.webp" alt="Steve Phillips" width="132" height="132" loading="lazy">
         <h3>Steve Phillips</h3>
         <p class="role">Co-author</p>
         <p>Has spent his career in trading-floor communications, including as CEO of Infinet Financial Systems and running Asia-Pacific for a turret vendor out of Tokyo. He has been on both sides of the contracts described in this book.</p>
       </div>
       <div class="author">
-        <img class="portrait" src="assets/amar.jpg" alt="Amar Akshat" width="132" height="132" loading="lazy">
+        <img class="portrait" src="assets/amar.webp" alt="Amar Akshat" width="132" height="132" loading="lazy">
         <h3>Amar Akshat</h3>
         <p class="role">Co-author</p>
         <p>A technology leader whose career spans UCaaS, Global Markets Technology, Apple and fintech. He has architected mission-critical systems: media at scale, cloud-native infrastructure, and the identity and evidential problems that come with putting regulated voice on shared systems.</p>
@@ -298,6 +318,7 @@
     <span>&copy; Amar Akshat and Steve Phillips</span>
     <a href="https://www.amazon.com/Open-Line-Rebuilding-trading-floor-Kubernetes-ebook/dp/B0HHG6NGFH/" target="_blank" rel="noopener">Kindle</a>
     <a href="read/">Chapter One</a>
+    <a href="glossary/">Glossary</a>
     <a href="#contents">Contents</a>
     <span class="sp">196 pages &middot; 33 diagrams &middot; companion Visual Atlas</span>
   </div>

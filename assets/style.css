@@ -482,3 +482,26 @@ body.reader { background: var(--bg-sunk); }
 
 /* fallback: no-JS gets plain scrolling prose */
 .noscript-prose { max-width: 700px; margin: 0 auto; padding: 40px 24px 80px; font-family: var(--serif); }
+
+/* ---------- breadcrumbs and glossary ---------- */
+
+.crumbs { font-size: 13.5px; color: var(--ink-faint); margin-bottom: 22px; }
+.crumbs a { color: var(--ink-faint); text-decoration: none; }
+.crumbs a:hover { color: var(--teal); text-decoration: underline; }
+.crumbs span[aria-hidden] { margin: 0 6px; }
+
+h1.gloss-h1 {
+  font-size: clamp(32px, 5vw, 46px); line-height: 1.1; letter-spacing: -.02em;
+  font-weight: 800; margin: 0 0 20px;
+}
+
+dl.gloss { margin: 44px 0 0; border-top: 1px solid var(--rule); }
+.gterm { padding: 22px 4px; border-bottom: 1px solid var(--rule); scroll-margin-top: 84px; }
+.gterm:target { background: var(--amber-bg); border-radius: 8px; padding-inline: 14px; }
+.gterm dt {
+  font-weight: 700; font-size: 17.5px; margin: 0 0 8px; color: var(--ink);
+}
+.gterm dd {
+  margin: 0; color: var(--ink-soft); font-family: var(--serif);
+  font-size: 17px; line-height: 1.6;
+}
