@@ -163,12 +163,6 @@ img { max-width: 100%; display: block; }
 .hero-grid {
   display: grid; grid-template-columns: 1.15fr .85fr; gap: 60px; align-items: center;
 }
-@media (max-width: 900px) {
-  .hero { padding: 52px 0 56px; }
-  .hero-grid { grid-template-columns: 1fr; gap: 44px; }
-  .hero-art { order: -1; justify-content: center; }
-  .hero-art img { max-height: 340px; }
-}
 
 .kicker {
   font-size: 12px; letter-spacing: .22em; text-transform: uppercase;
@@ -199,6 +193,16 @@ h1.title {
 }
 .hero-art img:hover { transform: perspective(1400px) rotateY(-4deg) rotateX(1deg); }
 @media (prefers-reduced-motion: reduce) { .hero-art img { transform: none; } }
+
+@media (max-width: 900px) {
+  .hero { padding: 52px 0 56px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 44px; }
+  .hero-art { order: -1; justify-content: center; }
+  .hero-art img { max-height: 300px; }
+}
+@media (max-width: 620px) {
+  .hero-art img { max-height: 250px; }   /* keeps the buy button above the fold */
+}
 
 /* ---------- generic section ---------- */
 
