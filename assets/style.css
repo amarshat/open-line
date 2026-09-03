@@ -103,6 +103,7 @@ img { max-width: 100%; display: block; }
 .nav-links { margin-left: auto; display: flex; align-items: center; gap: 22px; }
 .nav-links a {
   color: var(--ink-soft); text-decoration: none; font-size: 14.5px;
+  white-space: nowrap;            /* a wrapped nav link doubles the bar height */
 }
 .nav-links a:hover { color: var(--ink); }
 .nav-links a.nav-buy {
@@ -111,6 +112,13 @@ img { max-width: 100%; display: block; }
 }
 .nav-links a.nav-buy:hover { background: var(--teal); color: #fff; }
 @media (max-width: 720px) { .nav-links a.hide-sm { display: none; } }
+/* below this the bar cannot hold brand, both links, the button and the toggle */
+@media (max-width: 620px) {
+  .nav-links a.hide-xs { display: none; }
+  .nav-links { gap: 14px; }
+  .nav-in { gap: 12px; padding-inline: 16px; }
+  .brand { font-size: 13px; letter-spacing: .12em; }
+}
 
 .themer {
   border: 1px solid var(--rule); background: var(--bg-alt); color: var(--ink-soft);
@@ -241,6 +249,12 @@ figure.fig {
   overflow: hidden; box-shadow: var(--shadow);
 }
 figure.fig img { width: 100%; }
+figure.fig a { display: block; }
+figure.fig .zoom {
+  font: 600 12px/1 var(--sans); color: var(--ink-faint);
+  padding: 0 18px 14px; background: var(--bg); display: none;
+}
+@media (max-width: 780px) { figure.fig .zoom { display: block; } }
 figure.fig figcaption {
   font-size: 14px; color: var(--ink-soft); padding: 14px 18px 16px;
   background: var(--bg); border-top: 1px solid var(--rule);
@@ -356,7 +370,8 @@ body.reader { background: var(--bg-sunk); }
   aspect-ratio: 10 / 7;
   perspective: 2600px;
 }
-@media (max-width: 820px) { .book { aspect-ratio: 3 / 4; } }
+@media (max-width: 820px) { .book { aspect-ratio: 2 / 3; } }
+@media (max-width: 820px) and (max-height: 700px) { .book { aspect-ratio: 3 / 4; } }
 
 .leaf-stack { position: absolute; inset: 0; transform-style: preserve-3d; }
 
@@ -468,6 +483,8 @@ body.reader { background: var(--bg-sunk); }
 .progress i { display: block; height: 100%; width: 0; background: var(--amber); transition: width .5s ease; }
 
 .hint { text-align: center; font-size: 13.5px; color: var(--ink-faint); padding: 0 16px 40px; }
+.hint .kb { display: inline; }
+@media (max-width: 620px) { .hint .kb { display: none; } .hint .tap::after { content: ' to turn the page.'; } }
 .hint kbd {
   font: 600 12px/1 var(--mono); border: 1px solid var(--rule); border-bottom-width: 2px;
   border-radius: 5px; padding: 3px 6px; background: var(--bg); color: var(--ink-soft);
