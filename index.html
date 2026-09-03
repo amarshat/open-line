@@ -171,6 +171,7 @@
   <div class="wrap narrow">
     <p class="eyebrow">Background, for anyone new to the floor</p>
     <h2>What is a trading turret, and what does WebRTC change?</h2>
+    <p><strong>Trader voice</strong> is the industry's name for this whole category: the specialised voice systems a trading floor runs instead of ordinary telephony, built for people who talk to the same counterparties every day and cannot wait for a call to connect. Its centrepiece is the turret.</p>
     <p>A <strong>trading turret</strong>, also called a <strong>dealerboard</strong>, is the dedicated console on a trading desk: a bank of sixty or more physical keys, each one a standing, pre-provisioned line to a specific counterparty or channel. It is not a telephone with speed dials. Pressing a key closes a circuit that is already open, so there is no dial tone, no ringing and no greeting. The trader is simply speaking.</p>
     <p>That behaviour comes from the <strong>private wire</strong> underneath it, a permanent leased connection negotiated once at provisioning time, sometimes years before anybody presses the key. It also explains the other thing floors run: the <strong>hoot</strong>, an always-open broadcast channel nobody answers and nobody joins, because a system that announced who was listening would be useless.</p>
     <p><strong>WebRTC</strong> changes the endpoint. The turret becomes a browser tab or an application on ordinary hardware, media travels as SRTP over a negotiated peer connection rather than down a dedicated wire, and the session is established per press instead of once per contract. Put that on <strong>Kubernetes</strong> and the media plane becomes something you scale, drain and fail over like any other workload, except that it is stateful and somebody is talking through it.</p>
@@ -298,7 +299,7 @@
 <section class="finale">
   <div class="wrap">
     <h2>Start with the button that cannot wait</h2>
-    <p class="lede">Chapter One is free and complete. It is the shortest way to find out whether the rest of the book is for you.</p>
+    <p class="lede">Chapter One is free and complete. It is the shortest way to find out whether a book about rebuilding trader voice is for you.</p>
     <div class="cta-row">
       <a class="btn btn-primary" href="https://www.amazon.com/Open-Line-Rebuilding-trading-floor-Kubernetes-ebook/dp/B0HHG6NGFH/" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 18h6"/></svg>
