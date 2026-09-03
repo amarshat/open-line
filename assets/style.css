@@ -196,12 +196,13 @@ h1.title {
 
 @media (max-width: 900px) {
   .hero { padding: 52px 0 56px; }
-  .hero-grid { grid-template-columns: 1fr; gap: 44px; }
-  .hero-art { order: -1; justify-content: center; }
-  .hero-art img { max-height: 300px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  /* title and buttons lead; the cover follows them */
+  .hero-art { justify-content: center; }
+  .hero-art img { max-height: 340px; }
 }
 @media (max-width: 620px) {
-  .hero-art img { max-height: 250px; }   /* keeps the buy button above the fold */
+  .hero-art img { max-height: 300px; }
 }
 
 /* ---------- generic section ---------- */
