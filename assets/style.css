@@ -150,6 +150,8 @@ img { max-width: 100%; display: block; }
 .btn-primary:hover { background: color-mix(in srgb, var(--teal) 88%, #000); }
 .btn-ghost { background: transparent; color: var(--ink); border-color: var(--rule); }
 .btn-ghost:hover { border-color: var(--ink-faint); }
+.btn-ghost.btn-buy { border-color: var(--teal); color: var(--teal); }
+.btn-ghost.btn-buy:hover { background: var(--teal); color: #fff; border-color: var(--teal); }
 
 /* ---------- hero ---------- */
 

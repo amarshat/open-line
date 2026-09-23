@@ -168,7 +168,9 @@
     '<p class="bt">Chapter Two<br>waits in the book</p>' +
     '<div class="rule"></div>' +
     '<p class="bs">Sixteen more chapters, an epilogue and thirty-three diagrams follow this one.</p>' +
-    '<p class="ba"><a href="https://www.amazon.com/Open-Line-Rebuilding-trading-floor-Kubernetes-ebook/dp/B0HHG6NGFH/" target="_blank" rel="noopener">Get it on Kindle</a></p>');
+    '<p class="ba"><a href="https://www.amazon.com/Open-Line-Rebuilding-trading-floor-Kubernetes-ebook/dp/B0HHG6NGFH/" target="_blank" rel="noopener">Kindle</a>' +
+    ' &nbsp;&middot;&nbsp; ' +
+    '<a href="https://www.amazon.com/Open-Line-Rebuilding-trading-floor-Kubernetes/dp/B0HHZTL4HN/" target="_blank" rel="noopener">Paperback</a></p>');
 
   function wrap(bodyHTML, n, total) {
     return '<div class="page">' +
