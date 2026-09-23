@@ -1,4 +1,4 @@
-/* Open Line — chapter reader.
+/* Open Line chapter reader.
    Paginates the chapter to fit the viewport, then binds the pages onto
    flipping sheets. Two pages side by side on a wide screen, one on a narrow
    one. Without JavaScript the source prose stays in the document and is
